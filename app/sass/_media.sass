@@ -5,15 +5,43 @@
 
 // ≥1200px
 +media-breakpoint-down(lg)
+	.page-title
+		font-size: ($headSizeText*0.9)
+		margin-top: 12%
+	.page-description
+		font-size: ($headSizeText*0.9/2)
 
 // ≥992px
 +media-breakpoint-down(md)
+	.page-title
+		font-size: ($headSizeText*0.7)
+		margin-top: 12%
+	.page-description
+		font-size: ($headSizeText*0.7/2)
 
 // ≥768px
 +media-breakpoint-down(sm)
+	.fullscreen-bg
+		background: url('../img/background.png') center center / cover no-repeat
+	.fullscreen-bg__video
+		display: none
+	.page-title
+		font-size: ($headSizeText*0.6)
+		margin-top: 10%
+	.page-description
+		font-size: ($headSizeText*0.7/2)
+	.book-request
+		margin-top: 15px
 
 // ≥576px
 +media-breakpoint-down(xs)
+	.page-title
+		font-size: ($headSizeText*0.4)
+		margin-top: 11%
+	.page-description
+		font-size: ($headSizeText*0.5/2)
+	.book-request
+		margin-top: 15px
 
 
 /*==========  Mobile First  ==========*/
@@ -29,3 +57,4 @@
 
 // ≤1200px
 +media-breakpoint-up(xl)
+

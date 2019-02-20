@@ -26,7 +26,8 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('styles', function() {
-	return gulp.src('app/'+syntax+'/**/*.'+syntax+'')
+	return gulp.src(['app/'+syntax+'/**/*.'+syntax+'',
+		])
 	.pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
 	.pipe(rename({ suffix: '.min', prefix : '' }))
 	.pipe(autoprefixer(['last 15 versions']))
@@ -38,10 +39,14 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
+		// 'app/libs/moment/min/moment.min.js',
+		// 'app/libs/moment/locale/ru.js',
+		'app/libs/zebra_datepicker/dist/zebra_datepicker.min.js',
+		'app/libs/jquery.maskedinput/dist/jquery.maskedinput.min.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
-	// .pipe(uglify()) // Mifify js (opt.)
+	.pipe(uglify({ toplevel: true })) // Mifify js (opt.)
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.reload({ stream: true }))
 });

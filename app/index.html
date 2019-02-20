@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<!-- <base href="/"> -->
 
-	<title>OptimizedHTML 4</title>
+	<title>Жилье в Алуште посуточно &mdash; летний сезон 2019 года</title>
 	<meta name="description" content="">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,20 +22,107 @@
 	<meta name="theme-color" content="#000">
 	<!-- Custom Browsers Color End -->
 
-	<link rel="stylesheet" href="css/main.min.css">
-
 </head>
 
 <body>
+
+<div class="fullscreen-bg">
+		<div class="overlay">
+				<p class="page-title">Комфортабельное жильё</p>
+				<p class="page-description">Черноморское побережье, город Алушта</p>
+		</div>
+		<video loop muted autoplay poster="img/background.png" class="fullscreen-bg__video">
+				<source src="video/alushta.mp4" type="video/mp4">
+				<source src="video/alushta.webm" type="video/webm">
+		</video>
+</div>
+
+
 
 	<!-- Custom HTML -->
 
 	<div class="container">
 
+		<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: #003580">
+			<a class="navbar-brand" href="#" style="font-style: italic;">AL<span style="color: red;">UBK</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Описание</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Фотографии</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Расположение</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Бронирование <span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+	<form action="#">
+		<div class="row book-request">
+			<div class="col-md-4 book-name">
+				<div id="option-request" class="option-request hidden">
+					<div class="row">
+						<div class="col-7">
+							<label>Взрослых</label>
+						</div>
+						<div class="col-5">
+							<div class=" alubk-stepper__wrapper">
+								<input class="alubk-stepper-input" id="groupAdults" type="range" min="1" max="30" value="1" data-alubk-ref="input-stepper-field" name="group_adults">
+								<button class="alubk-button alubk-button--secondary alubk-stepper__subtract-button" data-alubk-ref="input-stepper-subtract-button" type="button" aria-hidden="true" disabled><span class="alubk-button__text">–</span></button>
+								<span class="alubk-stepper__display" aria-hidden="true" data-alubk-ref="input-stepper-value">1</span>
+								<button class="alubk-button alubk-button--secondary alubk-stepper__add-button" data-alubk-ref="input-stepper-add-button" type="button" aria-hidden="true"><span class="alubk-button__text">+</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<label id="guests__toggle" class="xp__input">
+					<span data-adults-count>1 взрослый</span>
+					<span data-visible="accommodation">
+						&nbsp;·&nbsp;
+						<span data-children-count>1 ребенок</span>
+					</span>
+					<span data-visible="accommodation">
+						&nbsp;·&nbsp;
+						<span data-room-count>1 номер</span>
+					</span>
+				</label>
+			</div>
+			<div class="col-md-4 book-numberphone">
+				<input name="name" value="" placeholder="Ваше имя" type="text" class="input-name">
+			</div>
+			<div class="col-md-4 book-email">
+				<input name="email" value="" placeholder="E-mail" type="email" class="input-email" id="input-email" pattern="\S+@[a-z]+.[a-z]+" autocapitalize="off" autocorrect="off" autocomplete="email" required />
+			</div>
+			<div class="col-md-4 col-12 book-check">
+<div class="input-group date" data-target-input="nearest">
+					<svg class="calendar-icon" fill="#BDBDBD" height="30" width="30" viewBox="0 0 128 128"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><g id="svg-1bfe"><path id="svg-1511a" class="cls-1" d="M112 16H96V8h-8v8H40V8h-8v8H16c-4.4 0-8 3.9-8 8.7v86.6c0 4.8 3.6 8.7 8 8.7h96c4.4 0 8-3.9 8-8.7V24.7c0-4.8-3.6-8.7-8-8.7zm0 95.3a1.1 1.1 0 0 1-.2.7H16.2a1.1 1.1 0 0 1-.2-.7V40h96zM44 68H32V56h12zm0 28H32V84h12zm26-28H58V56h12zm0 28H58V84h12zm26 0H84V84h12zm0-28H84V56h12z"></path></g></svg><span class="mdash">&mdash;</span>
+					<input id="checkin" class="input-checkin" placeholder="Заезд" pattern="[.0-9]{,8}" autocomplete="off" type="text" style="cursor: pointer;" data-zdp_readonly_element="true" data-zdp_show_icon="false" required />
+					<input id="checkout" class="input-checkout" placeholder="Отъезд" pattern="[.0-9]{,8}" autocomplete="off" type="text" style="cursor: pointer;" data-zdp_readonly_element="true" data-zdp_show_icon="false" required />
+				</div>
+			</div>
+			<div class="col-md-4 col-12 book-amount">
+				<input name="number_phone" value="" placeholder="Номер телефона" type="tel" class="input-numberphone" id="input-numberphone" autocorrect="off" autocomplete="tel" />
+			</div>
+			<div class="col-md-4 book-send">
+				<input id="sendBooking" name="send" value="Запросить бронирование" type="submit" class="input-submit" />
+			</div>
+		</div>
+	</form>
+
+
 		<div class="row">
 
 			<div class="col-8 offset-2">
-				
+
 				<img class="img-responsive" src="img/preview.jpg" alt="Start HTML5 Template">
 
 				<br>
@@ -63,7 +150,8 @@
 
 	</div>
 
-	<script src="js/scripts.min.js"></script>
 
+	<link rel="stylesheet" href="css/main.min.css">
+	<script src="js/scripts.min.js"></script>
 </body>
 </html>

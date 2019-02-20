@@ -1,0 +1,26 @@
+{
+  "name": "optimizedhtml",
+  "description": "OptimizedHTML 4 - Start HTML Template",
+  "main": "index.js",
+  "authors": [
+    "WebDesign Master"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/agragregra/OptimizedHTML-4",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tempus-dominus-bs4": "^5.1.2",
+    "bootstrap4": "^4.2.1",
+    "jquery": "^3.3.1",
+    "moment": "^2.24.0",
+    "jquery.maskedinput": "^1.4.1",
+    "zebra_datepicker": "^1.9.12"
+  }
+}

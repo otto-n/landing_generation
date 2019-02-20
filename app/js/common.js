@@ -14,13 +14,10 @@ $(function() {
 
 	$('#input-numberphone').mask('8 (999) 999-99-99');
 
-	// $(document).on('click', function(e) {
-	// 	if (e.target.id == 'guests__toggle') {
-	// 		$('#option-request').removeClass('hidden');
-	// 	} else if (e.target.id != 'option-request') {
-	// 		$('#option-request').addClass('hidden');
-	// 	}
-	// });
+// Уход со страницы
+	$(window).bind('beforeunload', function () {
+		return "Are you sure you want to exit? Please complete sign up or the app will get deleted.";
+	});
 
 	$('#option-request').click(function(e) {
 		e.stopPropagation();

@@ -2,6 +2,10 @@
 /dist/
 /.git/
 /app/css/
+/app/fonts/
+/app/img/
+/app/js/
+/app/video/
 /**/_backstage
 /**/package-lock.json
 /**/Thumbs.db

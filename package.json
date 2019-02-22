@@ -1,5 +1,5 @@
 {
-  "name": "optimizedhtml",
+  "name": "landing",
   "version": "4.0.0",
   "description": "OptimizedHTML 4 - Start HTML Template",
   "main": "index.js",
@@ -25,6 +25,15 @@
   "dependencies": {
     "boostrap": "^2.0.0",
     "concat-cli": "^4.0.0",
+    "owl.carousel": "^2.3.4",
     "uglifycss": "0.0.29"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otto-n/landing_generation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/otto-n/landing_generation/issues"
+  },
+  "homepage": "https://github.com/otto-n/landing_generation#readme"
 }

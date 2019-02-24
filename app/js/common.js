@@ -19,7 +19,63 @@ $(function() {
 
 					var min,max,valueInput,count,target,textDisplay,preFix,postFix;
 
-					// Не обрататываем событие если кликнули на открвтой форме
+					var main = function(selector, typeOperation) {
+
+						var operand;
+
+						min   = parseInt($(selector).siblings(settings.input).prop('min'));
+						max   = parseInt($(selector).siblings(settings.input).prop('max'));
+						valueInput = parseInt($(selector).siblings(settings.input).prop('value'));
+						count = valueInput;
+
+						if ( typeOperation == "add" ) {
+							count  += 1;
+							operand = max;
+						} else {
+							count  -= 1;
+							operand = min;
+						}
+
+						if ( count == operand ) {
+							$(selector).prop("disabled", true);
+						}
+
+						$(selector).siblings(settings.subtract).prop("disabled", false);
+
+						// если счетчик достиг предела
+						if ( valueInput != operand ) {
+							textDisplay = "";
+							preFix      = "";
+							postFix     = "";
+
+							$(selector).siblings(settings.display).text(count);
+							$(selector).siblings(settings.input).val(count);
+
+							target = $(selector).data("target");
+							$.each(settings.postFix, function(index, value) {
+								// если в объекте найден postFix, записываем его в переменную
+								if ( index == target ) {
+									postFix = value[count-1]?
+									value[count-1]:"";
+								}
+
+								$.each(settings.preFix, function(index, value) {
+									// если в объекте найден Prefix записываем его в переменную
+									if ( index == target ) {
+										preFix = value?value:"";
+									}
+								});
+							});
+
+							if ( count > 0 ) {
+								textDisplay = preFix + "" + count + " " + postFix;
+							}
+
+							$("#" + target).html(textDisplay);
+						}
+					}; // конец main function
+
+					// Не обрататываем событие если кликнули на открытой форме
 					$(settings.blockTools).click(function(e){
 						e.stopPropagation();
 					});
@@ -31,98 +87,12 @@ $(function() {
 
 						// обрабатываем событие по клику на +
 						$(settings.blockTools).find(settings.add).click(function() {
-
-							min   = parseInt($(this).siblings(settings.input).prop('min'));
-							max   = parseInt($(this).siblings(settings.input).prop('max'));
-							valueInput = parseInt($(this).siblings(settings.input).prop('value'));
-							count = valueInput;
-
-							count += 1;
-
-							if ( count == max ) {
-								$(this).prop("disabled", true);
-							}
-
-							$(this).siblings(settings.subtract).prop("disabled", false);
-
-							// если счетчик достиг предела
-							if ( valueInput != max ) {
-								textDisplay = "";
-								preFix      = "";
-								postFix     = "";
-
-								$(this).siblings(settings.display).text(count);
-								$(this).siblings(settings.input).val(count);
-
-								target = $(this).data("target");
-								$.each(settings.postFix, function(index, value) {
-									// если в объекте найден postFix, записываем его в переменную
-									if ( index == target ) {
-										postFix = value[count-1]?
-										value[count-1]:"";
-									}
-
-									$.each(settings.preFix, function(index, value) {
-										// если в объекте найден Prefix записываем его в переменную
-										if ( index == target ) {
-											preFix = value?value:"";
-										}
-									});
-								});
-
-								textDisplay = preFix + "" + count + " " + postFix;
-
-								$("#" + target).html(textDisplay);
-							}
+							main(this, "add");
 						});
 
+						// обрабатываем событие по клику на -
 						$(settings.blockTools).find(settings.subtract).click(function() {
-
-							min   = parseInt($(this).siblings(settings.input).prop('min'));
-							max   = parseInt($(this).siblings(settings.input).prop('max'));
-							valueInput = parseInt($(this).siblings(settings.input).prop('value'));
-							count = valueInput;
-
-							count -= 1;
-
-							if ( count == min ) {
-								$(this).prop("disabled", true);
-							}
-
-							$(this).siblings(settings.add).prop("disabled", false);
-
-							// если счетчик достиг предела
-							if ( valueInput != min ) {
-								textDisplay = "";
-								preFix      = "";
-								postFix     = "";
-
-								textDisplay = "";
-								$(this).siblings(settings.display).text(count);
-								$(this).siblings(settings.input).val(count);
-
-								target = $(this).data("target");
-								$.each(settings.postFix, function(index, value) {
-									// если в объекте найден postFix, записываем его в переменную
-									if ( index == target ) {
-										postFix = value[count-1]?
-										value[count-1]:"";
-									}
-
-									$.each(settings.preFix, function(index, value) {
-										// если в объекте найден Prefix записываем его в переменную
-										if ( index == target ) {
-											preFix = value?value:"";
-										}
-									});
-								});
-
-								if ( count > 0 ) {
-									textDisplay = preFix + "" + count + " " + postFix;
-								}
-								
-								$("#" + target).html(textDisplay);
-							}
+							main(this, "subtract");
 						});
 					});
 

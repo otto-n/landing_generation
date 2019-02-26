@@ -1,0 +1,23 @@
+{
+  "name": "SlitSlider",
+  "main": "js/jquery.slitslider.js",
+  "license": "MIT",
+  "ignore": [],
+  "keywords": [
+    "slider"
+  ],
+  "dependencies": {
+    "jquery": ">=1.5",
+    "modernizr": "2.*"
+  },
+  "homepage": "https://github.com/codrops/SlitSlider",
+  "_release": "14ccc22259",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "14ccc222595de9271e13a9b2e3a04c8d321ea35e"
+  },
+  "_source": "https://github.com/codrops/SlitSlider.git",
+  "_target": "*",
+  "_originalSource": "SlitSlider"
+}

@@ -34,24 +34,42 @@ body
 
 .text-center
 	text-align: center
-
 b, strong
 	font-weight: bold
 
-.fullscreen-bg
+.preloader
+	position: fixed
+	left: 0px
+	top: 0px
+	width: 100%
+	height: 100%
+	z-index: 999999
+	background: url(../img/interface/loading.gif) center no-repeat #fff
+	text-align: center
+
+
+.fullscreenTopBgPage
+	overflow: hidden
+	position: relative
+	height: 100vh
+	width: 100%
+	padding: 0 
+	margin: 0
+	min-height: 600px
+
+.video__block
+	width: 100%
+	min-height: 600px
+	height: 100vh
+	position: absolute
 	overflow: hidden
 	z-index: -100
-	position: relative
-	height: 100%
-	width: 100%
-	padding-top: 45%
-	margin-top: 59px
 
-.fullscreen-bg__video
+.viedeo__file
 	position: absolute
-	top: 0
-	left: 0
 	width: 100%
+	height: 100%
+	object-fit: cover
 
 .overlay
 	background: rgba(0,0,0,0.7)
@@ -60,103 +78,73 @@ b, strong
 	left: 0
 	width: 100%
 	height: 100%
-	z-index: 4
+	z-index: -99
+	min-height: 600px
+
+.overlay__content
+	position: absolute
+	text-align: center
+	width: 100%
+	bottom: 55%
 
 .page-title
-	text-align: center
 	color: #fff
 	font-size: $headSizeText
-	margin-top: 15%
 
 .page-description
-	text-align: center
 	color: #fff
 	font-size: ($headSizeText/2)
 	margin-top: -10px;
 
-.book-request
-	box-shadow: 0 2px 16px
-	margin: -60px auto 40px auto
-	padding: 1px
-	background-color: #febb02
-	border: 1px solid #e2aa11
-	border-radius: 2px
-
-.book-name,.book-numberphone,.book-email,.book-check,.book-amount,.book-send
-	padding: 2px
-
-// Form book
-
-#mdashCheck
+.scroll__info
+	position: absolute
 	display: block
-	margin: 0
-	margin-left: 48.5%
-	padding: 0
-	position: absolute
-	width: 15px
-	height: 50px
-	text-align: center
-	vertical-align: middle
-	line-height: 3.5
-	color: #ccc
-
-
-.calendar-icon
-	position: absolute
-	margin-top: 11px
-	margin-left: 11px
-
-.input-name
 	width: 100%
-	padding: 13px
-	border: 0
-	border-radius: 2px
-
-.input-numberphone
-	width: 100%
-	padding: 13px
-	border: 0
-	border-radius: 2px
-
-.input-email
-	width: 100%
-	padding: 13px
-	border: 0
-	border-radius: 2px
-
-.input-checkin
-	width: 50%
-	padding: 13px
-	padding-right: 10px
-	border: 0
-	text-align: right
-
-.input-checkout
-	width: 50%
-	padding: 13px
-	padding-left: 10px
-	border: 0
-
-.input-submit
-	width: 100%
-	padding: 13px
-	border: 1px solid #e2aa11
-	background-color: #07c
-	color: #fff
-
-.option-request
-	display: block
-	position: absolute
 	left: 0
-	margin-top: -150px
-	padding: 24px 24px 8px
-	width: 100%
-	border-radius: 4px
-	background-color: #fff
-	box-shadow: 0 2px 16px
-	z-index: 999
+	bottom: 5%
 
-@import "search"
-@import "bottomBooking"
-@import "noteSlider"
+.scroll__text
+	position: relative
+	display: block
+	width: 100%
+	text-align: center
+	text-transform: uppercase
+	font-weight: normal
+	font-size: 0.8em
+	color: rgba(255,255,255,0.5)
+
+.mouse
+	position: inherit
+	box-sizing: border-box
+	left: 50%
+	bottom: 50px
+	width: 30px
+	height: 48px
+	border-radius: 15px
+	border: 2px solid rgba(255,255,255,0.5)
+	transform: translateX(-50%) translateZ(0)
+
+.mouse__wheel
+	position: inherit
+	left: 50%
+	margin-left: -2px
+	top: 8px
+	width: 4px
+	height: 9px
+	background: rgba(255,255,255,0.5)
+	border-radius: 2px
+	animation: mouse-wheel 1.25s infinite linear
+	transform-origin: 50% 0%
+
+@keyframes mouse-wheel
+	0%
+		transform: scaleY(.4) translateY(0)
+	20%
+		transform: scaleY(1) translateY(0)
+	60%
+		transform: scaleY(.4) translateY(12px)
+	100%
+		transform: scaleY(.4) translateY(0)
+
+@import "searchToggle"
 @import "media" // Always at the end

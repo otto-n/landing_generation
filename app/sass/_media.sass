@@ -18,30 +18,43 @@
 		margin-top: 12%
 	.page-description
 		font-size: ($headSizeText*0.7/2)
+	.mdash
+		left: 48.9%
 
 // ≥768px
 +media-breakpoint-down(sm)
-	.fullscreen-bg
+	.fullscreenTopBgPage
 		background: url('../img/background.png') center center / cover no-repeat
-	.fullscreen-bg__video
+	.fullscreenBgVideo
 		display: none
+	.overlay__content
+		bottom: 25%
 	.page-title
 		font-size: ($headSizeText*0.6)
-		margin-top: 10%
 	.page-description
 		font-size: ($headSizeText*0.7/2)
-	.book-request
-		margin-top: 15px
+	.searchToggle
+		top: 65px
+		bottom: auto
+	.mouse
+		border: 2px solid rgba(255,255,255,0.9)
+	.mouse__wheel
+		background: rgba(255,255,255,0.9)
+	.scroll__text
+		color: rgba(255,255,255,0.9)
+	.mdash
+		left: 48.4%
+	.option-request
+		margin-top: 340px
 
 // ≥576px
 +media-breakpoint-down(xs)
 	.page-title
 		font-size: ($headSizeText*0.4)
-		margin-top: 11%
 	.page-description
 		font-size: ($headSizeText*0.5/2)
-	.book-request
-		margin-top: 15px
+	.mdash
+		left: 48.3%
 
 
 /*==========  Mobile First  ==========*/

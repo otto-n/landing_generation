@@ -1,0 +1,163 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.fullscreen-bg
+	overflow: hidden
+	z-index: -100
+	position: relative
+	height: 100%
+	width: 100%
+	padding-top: 45%
+	margin-top: 59px
+
+.fullscreen-bg__video
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+
+.overlay
+	background: rgba(0,0,0,0.7)
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 4
+
+.page-title
+	text-align: center
+	color: #fff
+	font-size: $headSizeText
+	margin-top: 15%
+
+.page-description
+	text-align: center
+	color: #fff
+	font-size: ($headSizeText/2)
+	margin-top: -10px;
+
+.book-request
+	box-shadow: 0 2px 16px
+	margin: -60px auto 40px auto
+	padding: 1px
+	background-color: #febb02
+	border: 1px solid #e2aa11
+	border-radius: 2px
+
+.book-name,.book-numberphone,.book-email,.book-check,.book-amount,.book-send
+	padding: 2px
+
+// Form book
+
+#mdashCheck
+	display: block
+	margin: 0
+	margin-left: 48.5%
+	padding: 0
+	position: absolute
+	width: 15px
+	height: 50px
+	text-align: center
+	vertical-align: middle
+	line-height: 3.5
+	color: #ccc
+
+.calendar-icon
+	position: absolute
+	margin-top: 11px
+	margin-left: 11px
+
+.input-name
+	width: 100%
+	padding: 13px
+	border: 0
+	border-radius: 2px
+
+.input-numberphone
+	width: 100%
+	padding: 13px
+	border: 0
+	border-radius: 2px
+
+.input-email
+	width: 100%
+	padding: 13px
+	border: 0
+	border-radius: 2px
+
+.input-checkin
+	width: 50%
+	padding: 13px
+	padding-right: 10px
+	border: 0
+	text-align: right
+
+.input-checkout
+	width: 50%
+	padding: 13px
+	padding-left: 10px
+	border: 0
+
+.input-submit
+	width: 100%
+	padding: 13px
+	border: 1px solid #e2aa11
+	background-color: #07c
+	color: #fff
+
+.option-request
+	display: block
+	position: absolute
+	left: 0
+	margin-top: -150px
+	padding: 24px 24px 8px
+	width: 100%
+	border-radius: 4px
+	background-color: #fff
+	box-shadow: 0 2px 16px
+	z-index: 999
+
+
+
+@import "search"
+@import "bottomBooking"
+@import "noteSlider"
+@import "media" // Always at the end

@@ -1,3 +1,8 @@
+// Переменные и функции для слайдера на главной
+
+// код для сладера закончился
+
+
 $(function() {
 
 	(function($){
@@ -89,7 +94,7 @@ $(function() {
 					if ( idInput === 'inputChildrens' ) {
 						if( typeOperation == "add" ) {
 							var lengthSelect = $(settings.ageChildrens + ' > select').length;
-							$(settings.ageChildrens).append("<select name='age' class='select__ageChild' aria-label='Возраст ребенка " + (lengthSelect+1) + "' data-child-age='" + lengthSelect + "'>\
+							$(settings.ageChildrens).append("<select name='ageChild' class='select__ageChild' aria-label='Возраст ребенка " + (lengthSelect+1) + "' data-child-age='" + lengthSelect + "'>\
 <option value='none' selected>Возраст на момент отъезда</option>\
 <option value='0'>0 лет</option>\
 <option value='1'>1 год</option>\
@@ -129,12 +134,14 @@ $(function() {
 			});
 
 			// обрабатываем событие по клику на +
-			$(settings.blockTools).find(settings.add).click(function() {
+			$(settings.blockTools).find(settings.add).click(function(e) {
+				e.preventDefault();
 				main(this, "add");
 			});
 
 			// обрабатываем событие по клику на -
-			$(settings.blockTools).find(settings.subtract).click(function() {
+			$(settings.blockTools).find(settings.subtract).click(function(e) {
+				e.preventDefault();
 				main(this, "subtract");
 			});
 
@@ -190,4 +197,121 @@ months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май',
 		input: "input"
 	} );
 
+	$( "#sendSearchTopForm" ).on( "click", function( event ) {
+		console.log( $("#topSearch").serialize() );
+		event.preventDefault();
+	});
+
+	// Слайдер на главной
+		var slidesRooms = $("#sliderRooms").children(".slide"),
+			currentIndex, newStyleTop, newStyleLeft, newStyleOpaticy, newStyleHeight, index, value, backgroundImage;
+
+		$.each(slidesRooms, function(index, value) {
+			if( $(this).hasClass("current") ) {
+				currentIndex = index;
+			}
+
+			for (var i = 0; i < slidesRooms.length; i++) {
+				if( currentIndex == i ) {
+					newStyleLeft = 20;
+					newStyleOpaticy = "1";
+					newStyleHeight = "80%";
+					newStyleTop = "5%";
+				} else if ( i < currentIndex ) {
+					newStyleLeft = -((currentIndex-i) * 70 - 20);
+					newStyleOpaticy = "0.5";
+					newStyleHeight = "70%";
+					newStyleTop = "10%";
+				} else if ( i > currentIndex ) {
+					newStyleLeft = ((i - currentIndex) * 70 + 20);
+					newStyleOpaticy = "0.5";
+					newStyleHeight = "70%";
+					newStyleTop = "10%";
+				}
+
+				$(slidesRooms[i]).css("left", newStyleLeft + "%");
+				$(slidesRooms[i]).css("opacity", newStyleOpaticy);
+				$(slidesRooms[i]).css("height", newStyleHeight);
+				$(slidesRooms[i]).css("top", newStyleTop);
+			}
+
+			backgroundImage = $(slidesRooms[currentIndex]).data("backgroundImage");
+			$("#categoryRooms").css("background-image", "url('" + backgroundImage + "')");
+		});
+
+		// Кликаем назад
+		$("#prevSliderRooms").on("click", function() {
+			sliderRooms("prev");
+		});
+
+		// Кликаем вперед
+		$("#nextSliderRooms").on("click", function() {
+			sliderRooms("next");
+		});
+
+		function sliderRooms(typeAction) {
+
+			var slides = $("#sliderRooms").children(".slide"),
+				index, value, currentIndex, newStyleTop, newStyleLeft, newStyleOpaticy, newStyleHeight, backgroundImage;
+
+
+			$.each(slides, function(index, value){
+				// если при переборе всех элементов нашли активный
+				// (текущий), то проверяем не первый ли это
+				// элемент
+				if($(value).hasClass("current")) {
+					// если элемент не первый выбираем текущим
+					// элементом предыдущий. И переставляем классы CSS
+
+					// Если первый или последний элемент, то прекращаем
+					// работу функции
+					if( (typeAction === "next" && index != (slides.length-1)) || (typeAction === "prev" && index!=0) ) {
+						// иначе прибавляем или вычетаем следующий индекс
+						// в зависимости от типа операции
+						currentIndex = (typeAction=="prev") ? (index-1) : (index+1);
+
+						// перебираем весь массив элеметов, начиная с
+						// самого первого
+						for (var i = 0; i < slides.length; i++) {
+							// если наткнулись на аткивный элемент
+							// присваем характерные для него стили в переменную
+							if(currentIndex == i) {
+								newStyleLeft = 20;
+								newStyleOpaticy = "1";
+								newStyleHeight = "80%";
+								newStyleTop = "5%";
+							// если это элемент слева, значит опеделяем
+							// для него стили и здаписываем в переменную
+							} else if( i < currentIndex ) {
+								newStyleLeft = -((currentIndex-i) * 70 - 20);
+								newStyleOpaticy = "0.5";
+								newStyleHeight = "70%";
+								newStyleTop = "10%";
+							// если элемент справа - аналогично
+							} else if( i > currentIndex ) {
+								newStyleLeft = ((i - currentIndex) * 70 + 20);
+								newStyleOpaticy = "0.5";
+								newStyleHeight = "70%";
+								newStyleTop = "10%";
+							}
+
+							// отображаем стили из переменных
+							$(slides[i]).css("left", newStyleLeft + "%");
+							$(slides[i]).css("opacity", newStyleOpaticy);
+							$(slides[i]).css("height", newStyleHeight);
+							$(slides[i]).css("top", newStyleTop);
+
+						}
+
+						backgroundImage = $(slides[currentIndex]).data("backgroundImage");
+						$("#categoryRooms").css("background-image", "url('" + backgroundImage + "')");
+
+					}
+				}
+			});
+
+			$(slides[(typeAction==="prev")?currentIndex+1:currentIndex-1]).removeClass("current");
+			$(slides[currentIndex]).addClass("current");
+		}
+	// код для слайдера закончился
 });

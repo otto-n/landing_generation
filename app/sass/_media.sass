@@ -25,16 +25,19 @@
 +media-breakpoint-down(sm)
 	.fullscreenTopBgPage
 		background: url('../img/background.png') center center / cover no-repeat
-	.fullscreenBgVideo
+	.video__block
 		display: none
+	.overlay
+		z-index: 1
 	.overlay__content
-		bottom: 25%
+		top: 0
 	.page-title
 		font-size: ($headSizeText*0.6)
 	.page-description
 		font-size: ($headSizeText*0.7/2)
 	.searchToggle
-		top: 65px
+		margin: 0
+		top: 27%
 		bottom: auto
 	.mouse
 		border: 2px solid rgba(255,255,255,0.9)
@@ -55,6 +58,10 @@
 		font-size: ($headSizeText*0.5/2)
 	.mdash
 		left: 48.3%
+	.overlay__content
+		top: 1%
+	.searchToggle
+		top: 20%
 
 
 /*==========  Mobile First  ==========*/

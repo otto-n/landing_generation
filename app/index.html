@@ -6,18 +6,18 @@
 	<meta charset="utf-8">
 	<!-- <base href="/"> -->
 
-	<title>Жилье в Алуште посуточно &mdash; летний сезон 2019 года</title>
+	<title>Жилье в Алуште посуточно &mdash; летом 2019 года</title>
 	<meta name="description" content="">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
+
 	<!-- Template Basic Images Start -->
 	<meta property="og:image" content="path/to/image.jpg">
 	<link rel="icon" href="img/favicon/favicon.ico">
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
 	<!-- Template Basic Images End -->
-	
+
 	<!-- Custom Browsers Color Start -->
 	<meta name="theme-color" content="#000">
 	<!-- Custom Browsers Color End -->
@@ -31,7 +31,7 @@
 
 	<header class="fullscreenTopBgPage">
 		<nav class="navbar navbar-expand-md fixed-top navbar-dark">
-			<a href="#" class="navbar-brand">AL<span style="color: red;">UBK</span></a>
+			<a href="#" class="navbar-brand"><img src="img/interface/logo-alina.png" width="70" height="70" /></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -55,7 +55,7 @@
 
 		<div class="overlay">
 			<div class="overlay__content">
-				<p class="page-title">Комфортабельное жильё</p>
+				<h1 class="page-title">Отель вилла &quot;Алина&quot;</h1>
 				<p class="page-description">Черноморское побережье, город Алушта</p>
 			</div>
 		</div>
@@ -67,16 +67,16 @@
 			</video>
 		</div>
 
+		<form id="topSearch">
 		<div id="searchToggle" class="row searchToggle">
-
 			<div id="optionsRequest" class="option-request col-12 hidden">
-				<div class="col-lg-4">
+				<div class="col-xl-3 col-lg-4">
 					<div class="row">
 						<div class="col-5">
 							<label>Взрослых:</label>
 						</div>
 						<div class="col-5 stepper-wraper">
-							<input class="stepper-input" type="range" min="1" max="30" value="2" id="inputAdults">
+							<input name="amountAdults" class="stepper-input" type="range" min="1" max="30" value="2" id="inputAdults" />
 							<button class="subtract-counter" data-target="toggleDisplayAdults">–</button>
 							<span class="display-counter">2</span>
 							<button class="add-counter" data-target="toggleDisplayAdults">+</button>
@@ -87,14 +87,14 @@
 							<label>Детей:</label>
 						</div>
 						<div class="col-5 stepper-wraper">
-							<input class="stepper-input" type="range" min="0" max="10" value="0" id="inputChildrens">
+							<input name="amountChildrens" class="stepper-input" type="range" min="0" max="10" value="0" id="inputChildrens" />
 							<button class="subtract-counter" data-target="toggleDisplayChildrens" disabled>–</button>
 							<span class="display-counter">0</span>
 							<button class="add-counter" data-target="toggleDisplayChildrens">+</button>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-7" id="ageChildrens">
+				<div class="col-xl-8 col-lg-7" id="ageChildrens">
 				</div>
 			</div>
 
@@ -108,8 +108,8 @@
 				<div class="check input-group">
 						<span></span>
 						<span class="mdash">&mdash;</span>
-						<input id="checkin" class="input-checkin" placeholder="Заезд" pattern="[.0-9]{,8}" autocomplete="off" type="text" style="cursor: pointer;" data-zdp_readonly_element="true" data-zdp_show_icon="false" required />
-						<input id="checkout" class="input-checkout" placeholder="Отъезд" pattern="[.0-9]{,8}" autocomplete="off" type="text" style="cursor: pointer;" data-zdp_readonly_element="true" data-zdp_show_icon="false" required />
+						<input name="checkIn" id="checkin" class="input-checkin" placeholder="Заезд" pattern="[.0-9]{,8}" autocomplete="off" type="text" style="cursor: pointer;" data-zdp_readonly_element="true" data-zdp_show_icon="false" />
+						<input name="checkOut" id="checkout" class="input-checkout" placeholder="Отъезд" pattern="[.0-9]{,8}" autocomplete="off" type="text" style="cursor: pointer;" data-zdp_readonly_element="true" data-zdp_show_icon="false" />
 				</div>
 			</div>
 			<div class="col-xl-4 col-lg-6 col-md-6">
@@ -125,7 +125,7 @@
 			</div>
 			<div class="col-xl-4 col-lg-6 col-md-6">
 				<div class="cellSearchToggle">
-					<input name="email" value="" placeholder="E-mail" type="email" class="input-email" id="input-email" pattern="\S+@[a-z]+.[a-z]+" autocapitalize="off" autocorrect="off" autocomplete="email" required />
+					<input name="email" value="" placeholder="E-mail" type="email" class="input-email" id="input-email" pattern="\S+@[a-z]+.[a-z]+" autocapitalize="off" autocorrect="off" autocomplete="email" />
 				</div>
 			</div>
 			<div class="col-xl-4 col-lg-6 col-md-6">
@@ -133,6 +133,7 @@
 					</div>
 			</div>
 		</div>
+		</form>
 
 		<div class="scroll__info">
 			<span class="mouse">
@@ -142,9 +143,25 @@
 		</div>
 	</header>
 
-	<main class="container">
-		saaewrtyj
-	</main>
+	<section id="categoryRooms">
+
+		<div class="wrapper">
+			<div class="slider" id="sliderRooms">
+				<div class="slide" data-background-image="img/category_rooms/1.jpg"><h2>Однокомнатный номер</h2></div>
+				<div class="slide current" data-background-image="img/category_rooms/2.jpg">
+					<h2>Двухкомнатный номер</h2>
+					<p>Идеально подойдет для влюблённой пары или отдыха в уединении.</p>
+					<i class="icon-size-m ri flaticon-bed"></i>
+				</div>
+				<div class="slide" data-background-image="img/category_rooms/3.jpg"><h2>Мансардный номер</h2></div>
+				<div class="buttons">
+					<button class="prev" id="prevSliderRooms"><i class="left-arrow"></i></button>
+					<button class="next" id="nextSliderRooms"><i class="right-arrow"></i></button>
+				</div>
+			</div>
+		</div>
+
+	</section>
 
 	<footer>
 		

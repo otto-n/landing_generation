@@ -1,0 +1,80 @@
+#categoryRooms
+	width: 100%
+	height: 100vh
+	background-color: #ccc
+	padding-top: 120px
+	margin: 0
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
+	transition-property: background-image
+	transition-duration: .3s
+
+.wrapper
+	position: relative
+
+.slider
+	position: relative
+	width: 100%
+	height: 600px
+	min-higth: 400px
+	overflow: none
+
+.slider button, .slider button:active, .slider button:focus
+	outline: none
+
+.slide
+	position: absolute
+	display: inline-block
+	width: 60%
+	height: 80%
+	border-radius: 10px
+	background-color: #fff
+	box-shadow: 0 2px 16px
+	padding: 40px 60px 60px 60px
+	transition-property: left, opacity, height, top
+	transition-duration: .5s
+	transition-timing-function: ease-in-out
+
+.buttons
+	position: absolute
+	width: 100%
+	height: 100vh
+	top: -20%
+	z-index: 1000
+
+.prev, .next
+	position: absolute
+	display: inline-block
+	width: 20%
+	height: 100%
+	border: 0
+	opacity: 0
+	outline-style: none
+
+.prev
+	left: 0
+
+.next
+	right: 0
+
+.prev:hover, .next:hover
+	opacity: 1
+	background-color: rgba(0,0,0,0.1)
+
+.left-arrow, .right-arrow
+	display: block
+	width: 100px
+	height: 100px
+	margin: auto
+	opacity: 0.7
+
+.left-arrow
+	background-image: url('../img/interface/left-arrow.svg')
+	background-repeat: no-repeat
+	background-position: center
+
+.right-arrow
+	background-image: url('../img/interface/right-arrow.svg')
+	background-repeat: no-repeat
+	background-position: center
